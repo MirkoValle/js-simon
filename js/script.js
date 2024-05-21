@@ -8,24 +8,25 @@ mainOut.innerHTML = "I numeri da ricordare sono: " + randomNumber.join(" - ")
 
 
 setTimeout(function () {
-
     mainOut.innerHTML = ""
 
-    controllo(randomNumber, correctNumbers)
+    setTimeout(function () {
+        controllo(randomNumber, correctNumbers)
 
-    out(correctNumbers, correctOut, randomNumber)
+        out(correctNumbers, correctOut, randomNumber)
 
-
-
-}, 2000);
+    }, 1);
+}, 30000);
 
 
 function out(correctNumbers, correctOut, randomNumber) {
     mainOut.innerHTML = "I numeri da ricordare erano: " + randomNumber.join(" - ")
     if (correctNumbers.length == 0) {
         correctOut.innerHTML = "Peccato non hai ricordato nessun numero, ritenta sarai più fortunato";
+        correctOut.classList.add("red");
     } else {
         correctOut.innerHTML = "Numeri indovinati: " + correctNumbers.join(" - ")
+        correctOut.classList.add("green");
     }
 
 }
